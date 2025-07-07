@@ -33,7 +33,7 @@ jobs:
             coucou.txt
       - name: publish release artifact
         if: github.ref_type == 'tag'
-        uses: softprops/actions-gh-release@v2
+        uses: softprops/action-gh-release@v2
         with:
           files: coucou.txt
           tag_name: ${{ github.ref_name }}
