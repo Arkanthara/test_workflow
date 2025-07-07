@@ -17,4 +17,24 @@ jobs:
         run: echo ${{ github.run_number }}
       - name: echo github.ref_type
         run: echo ${{ github.ref_type }}
+  publish:
+    name: publish
+    needs: echo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: publish artifact
+        if: github.ref_type == 'branch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Gnyahahha
+          path: |
+            coucou.txt
+      - name: publish release artifact
+        if: github.ref_type == 'tag'
+        uses: softprops/actions-gh-release@v2
+        with:
+          files: coucou.txt
+          tag_name: ${{ github.ref_name }}
 
