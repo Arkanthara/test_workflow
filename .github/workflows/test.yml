@@ -1,0 +1,20 @@
+name: TEST
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "*"
+
+jobs:
+  echo:
+    name: echo github variables
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo github.ref_name
+        run: echo ${{ github.ref_name }}
+      - name: echo github.run_number
+        run: echo ${{ github.run_number }}
+      - name: echo github.ref_type
+        run: echo ${{ github.ref_type }}
+
