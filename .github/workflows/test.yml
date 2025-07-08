@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: blabla
-        run: gh release view --json tagName
+        run: gh release view --json tagName -q .tagName
       - name: echo github.ref_name
         run: echo ${{ github.ref_name }}
       - name: echo github.run_number
