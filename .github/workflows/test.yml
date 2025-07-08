@@ -11,6 +11,8 @@ jobs:
     name: echo github variables
     runs-on: ubuntu-latest
     steps:
+      - name: blabla
+        run: gh release view 
       - name: echo github.ref_name
         run: echo ${{ github.ref_name }}
       - name: echo github.run_number
