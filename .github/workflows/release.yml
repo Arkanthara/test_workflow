@@ -41,3 +41,4 @@ jobs:
         with:
           body: ${{steps.github_release.outputs.changelog}}
           tag_name: ${{ github.ref_name }}
+          make_latest: true
