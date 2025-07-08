@@ -1,8 +1,7 @@
 name: Build changelog for Release
 on:
   release:
-    types: 
-      - created
+    types: [published, created]
 jobs:
   generate-changelog:
     runs-on: ubuntu-latest
