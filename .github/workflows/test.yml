@@ -33,10 +33,10 @@ jobs:
           name: Gnyahahha
           path: |
             coucou.txt
-      - name: publish release artifact
-        if: github.ref_type == 'tag'
-        uses: softprops/action-gh-release@v2
-        with:
-          files: coucou.txt
-          tag_name: ${{ github.ref_name }}
+      # - name: publish release artifact
+      #   if: github.ref_type == 'tag'
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     files: coucou.txt
+      #     tag_name: ${{ github.ref_name }}
 
