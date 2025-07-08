@@ -21,3 +21,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body: ${{steps.github_release.outputs.changelog}}
+          tag_name: ${{ github.ref_name }}
