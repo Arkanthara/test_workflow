@@ -11,6 +11,6 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v5
 
       - name: Create Release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v2
         with:
           body: ${{steps.github_release.outputs.changelog}}
