@@ -23,7 +23,7 @@ jobs:
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v5
         with:
-          fromTag: $TAG
+          fromTag: ${{ env.TAG }}
           toTag: ${{ github.ref_name }}
       - name: Create Release
         uses: softprops/action-gh-release@v2
