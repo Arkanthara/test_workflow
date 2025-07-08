@@ -8,19 +8,23 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - name: generate-changelog
         run: |
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
-      - name: Fetch all tags (just in case)
-        run: git fetch --tags
+
+      - name: get latest tag
+        run: echo TAG=$(gh release view --json tagName -q .tagName) >> $GITHUB_ENV
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v5
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          fromTag: $TAG
+          toTag: ${{ github.ref_name }}
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
