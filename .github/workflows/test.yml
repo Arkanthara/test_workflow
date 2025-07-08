@@ -10,6 +10,8 @@ jobs:
   echo:
     name: echo github variables
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: blabla
         run: gh release view 
