@@ -13,6 +13,8 @@ jobs:
         run: |
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
+      - name: Fetch all tags (just in case)
+        run: git fetch --tags
       - uses: actions/checkout@v4
       - name: Build Changelog
         id: github_release
