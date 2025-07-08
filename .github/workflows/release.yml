@@ -9,13 +9,13 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
       - name: generate-changelog
         run: |
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
       - name: Fetch all tags (just in case)
         run: git fetch --tags
-      - uses: actions/checkout@v4
       - name: Build Changelog
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v5
