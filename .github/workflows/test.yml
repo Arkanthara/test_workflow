@@ -27,7 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: publish artifact
-        if: github.ref_type == 'branch'
         uses: actions/upload-artifact@v4
         with:
           name: Gnyahahha
