@@ -7,6 +7,10 @@ jobs:
   generate-changelog:
     runs-on: ubuntu-latest
     steps:
+      - name: generate-changelog
+        run: |
+          echo ${{ github.ref }}
+          echo ${{ github.ref_name }}
       - uses: actions/checkout@v4
       - name: Build Changelog
         id: github_release
