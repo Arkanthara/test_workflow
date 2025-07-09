@@ -46,6 +46,8 @@ jobs:
       - name: Upload artifact on branch 'artifacts'
         if: github.ref_type == 'tag'
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git fetch
           git checkout artifacts
           git checkout ${{ github.ref_name }} "coucou.txt"
