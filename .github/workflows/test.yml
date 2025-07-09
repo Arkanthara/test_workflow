@@ -24,8 +24,9 @@ jobs:
         run: echo ${{ github.ref_type }}
 
       - name: Check branch for tag
-        if: github.ref_type == 'tag'
-        run: git branch --show-current
+        run: |
+          git status
+          git branch --show-current
 
   publish:
     name: publish
