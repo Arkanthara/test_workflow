@@ -22,6 +22,11 @@ jobs:
         run: echo ${{ github.run_number }}
       - name: echo github.ref_type
         run: echo ${{ github.ref_type }}
+
+      - name: Check branch for tag
+        if: github.ref_type == 'tag'
+        run: git branch --show-current
+
   publish:
     name: publish
     needs: echo
