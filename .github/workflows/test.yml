@@ -43,6 +43,16 @@ jobs:
           name: Gnyahahha
           path: |
             coucou.txt
+      - name: Upload artifact on branch 'artifacts'
+        if: github.ref_type == 'tag'
+        run: |
+          git checkout artifacts
+          git checkout ${{ github.ref_name }} "coucou.txt"
+          git add *
+          git status
+          git commit -m "Add artifacts from version $env:VERSION"
+          git push
+          git checkout ${{ github.ref_name }}
       # - name: publish release artifact
       #   if: github.ref_type == 'tag'
       #   uses: softprops/action-gh-release@v2
