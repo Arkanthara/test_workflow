@@ -53,8 +53,11 @@ jobs:
           git checkout ${{ github.ref_name }} "coucou.txt"
           git add *
           git status
-          git commit -m "Add artifacts from version $env:VERSION"
-          git push
+          git diff --cached --quiet
+          if [ $? -ne 0 ]; then
+              git commit -m "Add artifacts from version $VERSION"
+              git push
+          fi
           git checkout ${{ github.ref_name }}
       # - name: publish release artifact
       #   if: github.ref_type == 'tag'
